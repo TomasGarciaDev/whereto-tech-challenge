@@ -8,7 +8,7 @@
   max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-  background-color: aliceblue;
+  background-color: rgba(58, 59, 60, 0.115);
   position: relative;
   border: solid;
   border-radius: 0.5rem;
@@ -50,7 +50,9 @@ img {
   padding: 0.75rem;
   font-size: 2rem;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.361);
   cursor: pointer;
   z-index: 10;
+  border: solid;
+  border-color: black;
 }
