@@ -1,6 +1,6 @@
-/* .App {
+.App {
+  max-width: 1200px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+  aspect-ratio: "2/1";
+  margin: 0 auto;
+}

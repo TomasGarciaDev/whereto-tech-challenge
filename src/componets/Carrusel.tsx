@@ -12,7 +12,7 @@ interface CarruselProps {
 }
 
 export default function Carrusel({ recordsData }: CarruselProps) {
-  const [curIndex, setCurIndex] = useState(0);
+  const [curIndex, setCurIndex] = useState(4);
 
   const nextAlbum = () => {
     if (curIndex === recordsData.length - 1) return setCurIndex(0);
@@ -30,10 +30,14 @@ export default function Carrusel({ recordsData }: CarruselProps) {
       </button>
       <div
         className='slider'
-        style={{ transform: `translateX(-${curIndex * 100}%)` }}
+        // style={{ transform: `translateX(${(curIndex - index) * 100}%)` }}
       >
         {recordsData.map((record, index) => (
-          <div key={index} className='slider-card'>
+          <div
+            key={index}
+            className='slider-card'
+            style={{ transform: `translateX(${(index - curIndex) * 60}%)` }}
+          >
             <img
               src={record.coverUrl}
               alt={`Album cover for ${record.title}`}
