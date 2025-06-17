@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Carrusel.css";
 
 interface Record {
@@ -12,29 +12,55 @@ interface CarruselProps {
 }
 
 export default function Carrusel({ recordsData }: CarruselProps) {
-  const [curIndex, setCurIndex] = useState(4);
+  const [curIndex, setCurIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    if (!sliderRef.current || !cardRefs.current[curIndex]) return;
+
+    const currentCard = cardRefs.current[curIndex];
+    const slider = sliderRef.current;
+
+    const cardCenter = currentCard.offsetLeft + currentCard.offsetWidth / 2;
+    const sliderVisibleWidth = slider.offsetWidth;
+
+    const newOffset = cardCenter - sliderVisibleWidth / 2;
+
+    setOffset(newOffset);
+  }, [curIndex, recordsData]);
 
   const nextAlbum = () => {
-    if (curIndex === recordsData.length - 1) return setCurIndex(0);
-    setCurIndex(curIndex + 1);
+    setCurIndex((prev) => (prev === recordsData.length - 1 ? 0 : prev + 1));
   };
 
   const prevAlbum = () => {
-    if (curIndex === 0) return setCurIndex(recordsData.length - 1);
-    setCurIndex(curIndex - 1);
+    setCurIndex((prev) => (prev === 0 ? recordsData.length - 1 : prev - 1));
   };
+
   return (
     <div className='carrusel-container'>
       <button onClick={prevAlbum} className='nav-btn' style={{ left: 0 }}>
         &lArr;
       </button>
+
       <div className='carrusel'>
         <div
+          ref={sliderRef}
           className='slider'
-          style={{ transform: `translateX(-${curIndex * 100}%)` }}
+          style={{ transform: `translateX(-${offset}px)` }}
         >
           {recordsData.map((record, index) => (
-            <div key={index} className='slider-card'>
+            <div
+              key={index}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className={
+                index === curIndex ? "slider-card active" : "slider-card "
+              }
+            >
               <img
                 src={record.coverUrl}
                 alt={`Album cover for ${record.title}`}
@@ -43,6 +69,7 @@ export default function Carrusel({ recordsData }: CarruselProps) {
           ))}
         </div>
       </div>
+
       <button onClick={nextAlbum} className='nav-btn' style={{ right: 0 }}>
         &rArr;
       </button>
