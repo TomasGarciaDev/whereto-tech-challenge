@@ -10,6 +10,8 @@
   overflow: hidden;
   background-color: aliceblue;
   position: relative;
+  border: solid;
+  border-radius: 0.5rem;
 }
 
 .slider {
@@ -24,22 +26,20 @@
 .slider-card {
   flex-shrink: 0;
   width: fit-content;
-  padding: 3rem;
-  border-radius: 20px;
-  text-align: center;
+  padding: 2rem;
+  filter: blur(2px);
 }
 
 img {
-  width: 250px;
-  height: 250px;
+  width: clamp(100px, 25vw, 150px);
+  height: clamp(100px, 25vw, 150px);
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
 }
 
 .active {
-  scale: 1.4;
+  scale: 1.2;
   transition: scale 300ms ease-in-out;
+  filter: none;
 }
 
 .nav-btn {
