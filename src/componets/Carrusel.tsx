@@ -1,7 +1,17 @@
 import { useState } from "react";
 import "./Carrusel.css";
 
-export default function Carrusel({ recordsData }) {
+interface Record {
+  title: string;
+  coverUrl: string;
+  trackTitles: string[];
+}
+
+interface CarruselProps {
+  recordsData: Record[];
+}
+
+export default function Carrusel({ recordsData }: CarruselProps) {
   const [curIndex, setCurIndex] = useState(0);
 
   const nextAlbum = () => {
@@ -20,11 +30,14 @@ export default function Carrusel({ recordsData }) {
       </button>
       <div
         className='slider'
-        style={{ transform: `translateX(-${curIndex * 20}%)` }}
+        style={{ transform: `translateX(-${curIndex * 100}%)` }}
       >
-        {recordsData.map((record) => (
-          <div className='slider-card'>
-            <img src={record.coverUrl}></img>
+        {recordsData.map((record, index) => (
+          <div key={index} className='slider-card'>
+            <img
+              src={record.coverUrl}
+              alt={`Album cover for ${record.title}`}
+            />
           </div>
         ))}
         <h1>{recordsData[curIndex].title}</h1>
