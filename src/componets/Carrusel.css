@@ -1,27 +1,59 @@
-.carrusel {
+.carrusel-container {
   width: 100%;
-  height: 100%;
-  position: relative;
-  background: red;
+  position: absolute;
+}
+.carrusel {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-card {
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  text-align: center;
+  background-color: aliceblue;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  border-radius: 20px;
   overflow: hidden;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  padding: "40px";
 }
 
 img {
-  flex-grow: 0;
-  flex-shrink: 0;
-  height: 400px;
+  max-height: 300px;
   width: auto;
   object-fit: contain;
+}
+
+.nav-btn {
+  all: unset;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: x-large;
+  font-weight: bolder;
+  transition: background-color 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, 0.3);
+  all: unset;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: x-large;
+  font-weight: bolder;
+  transition: background-color 300ms ease-in-out;
 }
 
 /* .slider-card {
@@ -29,7 +61,4 @@ img {
   padding: 2rem;
 }
 
-.nav-btn {
-  height: fit-content;
-  background: gray;
-} */
+ */

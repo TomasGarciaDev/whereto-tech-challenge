@@ -24,29 +24,26 @@ export default function Carrusel({ recordsData }: CarruselProps) {
     setCurIndex(curIndex - 1);
   };
   return (
-    <div className='carrusel'>
-      <button onClick={prevAlbum} className='nav-btn'>
+    <div className='carrusel-container'>
+      <button onClick={prevAlbum} className='nav-btn' style={{ left: 0 }}>
         &lArr;
       </button>
-      <div
-        className='slider'
-        // style={{ transform: `translateX(${(curIndex - index) * 100}%)` }}
-      >
-        {recordsData.map((record, index) => (
-          <div
-            key={index}
-            className='slider-card'
-            style={{ transform: `translateX(${(index - curIndex) * 60}%)` }}
-          >
-            <img
-              src={record.coverUrl}
-              alt={`Album cover for ${record.title}`}
-            />
-          </div>
-        ))}
-        <h1>{recordsData[curIndex].title}</h1>
+      <div className='carrusel'>
+        <div
+          className='slider'
+          style={{ transform: `translateX(-${curIndex * 100}%)` }}
+        >
+          {recordsData.map((record, index) => (
+            <div key={index} className='slider-card'>
+              <img
+                src={record.coverUrl}
+                alt={`Album cover for ${record.title}`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      <button onClick={nextAlbum} className='nav-btn'>
+      <button onClick={nextAlbum} className='nav-btn' style={{ right: 0 }}>
         &rArr;
       </button>
     </div>
