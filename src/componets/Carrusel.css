@@ -1,0 +1,33 @@
+.carrusel {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slider {
+  max-width: 80px;
+  display: flex;
+  transition: transform 300ms ease-in-out;
+}
+
+img {
+  height: 400px;
+  width: auto;
+  object-fit: contain;
+}
+
+.slider-card {
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 2rem;
+}
+
+.nav-btn {
+  height: fit-content;
+  background: gray;
+}
