@@ -75,28 +75,31 @@ export default function Carrusel({ recordsData }: CarruselProps) {
           &rArr;
         </button>
       </div>
-
-      {recordsData[curIndex] && (
-        <div className='track-table-wrapper'>
-          <h2 style={{ textAlign: "center" }}>{recordsData[curIndex].title}</h2>
-          <table className='track-table'>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Track</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recordsData[curIndex].trackTitles.map((track, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{track}</td>
+      <div className='table-container'>
+        {recordsData[curIndex] && (
+          <div className='track-table-wrapper'>
+            <h2 style={{ textAlign: "center" }}>
+              {recordsData[curIndex].title}
+            </h2>
+            <table className='track-table'>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Track</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+              </thead>
+              <tbody>
+                {recordsData[curIndex].trackTitles.map((track, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{track}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </>
   );
 }
