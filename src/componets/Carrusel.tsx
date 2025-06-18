@@ -31,6 +31,22 @@ export default function Carrusel({ recordsData }: CarruselProps) {
     setOffset(newOffset);
   }, [curIndex, recordsData]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        nextAlbum();
+      } else if (e.key === "ArrowLeft") {
+        prevAlbum();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [curIndex]);
+
   const nextAlbum = () => {
     setCurIndex((prev) => (prev === recordsData.length - 1 ? 0 : prev + 1));
   };
