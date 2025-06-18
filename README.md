@@ -1,6 +1,8 @@
-# 10 Most Recent Album Carousel
+# 10 Most Recent Albums Carousel
 
 A React TypeScript application that displays 10 most recent album covers and track listings from a Subsonic API, featuring a visually appealing carousel where the center image is scaled larger while side images are smaller.
+
+[Alt text](./public/app-screenshot.png "App Screenshot")
 
 ## Features
 
@@ -31,8 +33,8 @@ A React TypeScript application that displays 10 most recent album covers and tra
 1. Clone the repository:
 
    ```
-   git clone <repository-url>
-   cd whereto
+   git clone https://github.com/TomasGarciaDev/whereto-tech-challenge.git
+   cd whereto-tech-challenge
    ```
 
 2. Install dependencies:
