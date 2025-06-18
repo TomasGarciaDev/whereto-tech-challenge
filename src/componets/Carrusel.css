@@ -58,6 +58,14 @@ img {
   border-color: black;
 }
 
+@media (max-width: 768px) {
+  .nav-btn {
+    padding: 0.6rem;
+    margin: 0.25rem;
+    font-size: 1.5rem;
+  }
+}
+
 .table-container {
   max-width: 70%;
   border: solid;
@@ -66,7 +74,7 @@ img {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .table-container {
     border: none;
     border-radius: 0;
