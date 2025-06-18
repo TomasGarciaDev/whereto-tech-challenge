@@ -2,7 +2,7 @@
 
 A React TypeScript application that displays 10 most recent album covers and track listings from a Subsonic API, featuring a visually appealing carousel where the center image is scaled larger while side images are smaller.
 
-[Alt text](./public/app-screenshot.png "App Screenshot")
+<img src="./public/app-screenshot.png" alt="App screenshot" />
 
 ## Features
 
