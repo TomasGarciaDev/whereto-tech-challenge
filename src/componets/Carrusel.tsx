@@ -40,9 +40,14 @@ export default function Carrusel({ recordsData }: CarruselProps) {
   };
 
   return (
-    <>
+    <section aria-label='Records Carrusel'>
       <div className='carrusel-container'>
-        <button onClick={prevAlbum} className='nav-btn' style={{ left: 0 }}>
+        <button
+          onClick={prevAlbum}
+          className='nav-btn'
+          style={{ left: 0 }}
+          aria-label='View Previous Record'
+        >
           &lArr;
         </button>
 
@@ -61,6 +66,7 @@ export default function Carrusel({ recordsData }: CarruselProps) {
                 className={
                   index === curIndex ? "slider-card active" : "slider-card "
                 }
+                aria-hidden={curIndex !== index}
               >
                 <img
                   src={record.coverUrl}
@@ -71,7 +77,12 @@ export default function Carrusel({ recordsData }: CarruselProps) {
           </div>
         </div>
 
-        <button onClick={nextAlbum} className='nav-btn' style={{ right: 0 }}>
+        <button
+          onClick={nextAlbum}
+          className='nav-btn'
+          style={{ right: 0 }}
+          aria-label='View Next Record'
+        >
           &rArr;
         </button>
       </div>
@@ -100,6 +111,6 @@ export default function Carrusel({ recordsData }: CarruselProps) {
           </div>
         )}
       </div>
-    </>
+    </section>
   );
 }
