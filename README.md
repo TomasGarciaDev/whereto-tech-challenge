@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 10 Most Recent Album Carousel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React TypeScript application that displays 10 most recent album covers and track listings from a Subsonic API, featuring a visually appealing carousel where the center image is scaled larger while side images are smaller.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Album Carousel**: Displays album covers with the center image scaled larger and side images smaller
+- **Track Listings**: Shows track listings for the currently selected album
+- **Keyboard Navigation**: Navigate through albums using arrow keys
+- **Responsive Design**: Works on various screen sizes
+- **Accessibility**: ARIA attributes and keyboard support for better accessibility
+- **Error Handling**: Graceful error handling with retry functionality
+- **Loading States**: User-friendly loading indicators
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Frontend library for building the user interface
+- **TypeScript**: Type safety and better developer experience
+- **CSS**: Styling with CSS variables for consistent theming
+- **Subsonic API**: Backend API for fetching album data
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or later)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   git clone <repository-url>
+   cd whereto
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   ```
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   or
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
+   yarn install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```
+   npm start
+   ```
 
-## Learn More
+   or
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```
+   yarn start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Open your browser and navigate to `http://localhost:3000`
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Navigating the Carousel
 
-### Analyzing the Bundle Size
+- **Mouse**: Click the left and right arrow buttons to navigate between albums
+- **Keyboard**: Use the left and right arrow keys to navigate between albums
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Viewing Track Listings
 
-### Making a Progressive Web App
+The track listing for the currently selected album is automatically displayed below the carousel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Structure
 
-### Advanced Configuration
+- `src/App.tsx`: Main application component that fetches data from the Subsonic API
+- `src/componets/Carrusel.tsx`: Carousel component that displays album covers
+- `src/componets/Carrusel.css`: Styling for the carousel component
+- `src/App.css`: Global application styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Integration
 
-### Deployment
+The application integrates with the Subsonic API to fetch album data. It makes the following API calls:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. `getAlbumList2`: Fetches a list of albums
+2. `getAlbum`: Fetches details for a specific album, including tracks
+3. `getCoverArt`: Fetches album cover images
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the LICENSE file for details.
