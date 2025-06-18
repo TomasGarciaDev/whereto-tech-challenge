@@ -1,4 +1,6 @@
 .carrusel-container {
+  display: flex;
+  align-items: center;
   width: 100%;
   position: relative;
 }
@@ -44,10 +46,12 @@ img {
 
 .nav-btn {
   all: unset;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  height: fit-content;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
   padding: 0.75rem;
+  margin: 0.5rem;
   font-size: 2rem;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.361);
@@ -55,4 +59,31 @@ img {
   z-index: 10;
   border: solid;
   border-color: black;
+}
+
+.track-table-wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.track-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 1rem;
+}
+
+.track-table th,
+.track-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.track-table thead {
+  background-color: #f4f4f4;
+}
+
+.track-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
 }

@@ -40,39 +40,63 @@ export default function Carrusel({ recordsData }: CarruselProps) {
   };
 
   return (
-    <div className='carrusel-container'>
-      <button onClick={prevAlbum} className='nav-btn' style={{ left: 0 }}>
-        &lArr;
-      </button>
+    <>
+      <div className='carrusel-container'>
+        <button onClick={prevAlbum} className='nav-btn' style={{ left: 0 }}>
+          &lArr;
+        </button>
 
-      <div className='carrusel'>
-        <div
-          ref={sliderRef}
-          className='slider'
-          style={{ transform: `translateX(-${offset}px)` }}
-        >
-          {recordsData.map((record, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              className={
-                index === curIndex ? "slider-card active" : "slider-card "
-              }
-            >
-              <img
-                src={record.coverUrl}
-                alt={`Album cover for ${record.title}`}
-              />
-            </div>
-          ))}
+        <div className='carrusel'>
+          <div
+            ref={sliderRef}
+            className='slider'
+            style={{ transform: `translateX(-${offset}px)` }}
+          >
+            {recordsData.map((record, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className={
+                  index === curIndex ? "slider-card active" : "slider-card "
+                }
+              >
+                <img
+                  src={record.coverUrl}
+                  alt={`Album cover for ${record.title}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
+        <button onClick={nextAlbum} className='nav-btn' style={{ right: 0 }}>
+          &rArr;
+        </button>
       </div>
 
-      <button onClick={nextAlbum} className='nav-btn' style={{ right: 0 }}>
-        &rArr;
-      </button>
-    </div>
+      {recordsData[curIndex] && (
+        <div className='track-table-wrapper'>
+          <h2 style={{ textAlign: "center" }}>{recordsData[curIndex].title}</h2>
+          <table className='track-table'>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Track</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recordsData[curIndex].trackTitles.map((track, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{track}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 }
