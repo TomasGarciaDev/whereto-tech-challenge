@@ -16,7 +16,7 @@ A React TypeScript application that displays 10 most recent album covers and tra
 
 - **React**: Frontend library for building the user interface
 - **TypeScript**: Type safety and better developer experience
-- **CSS**: Styling with CSS variables for consistent theming
+- **CSS**: Custom styling for layout, animations, and responsive design
 - **Subsonic API**: Backend API for fetching album data
 
 ## Getting Started
