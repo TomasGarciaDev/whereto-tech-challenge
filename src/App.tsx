@@ -71,7 +71,11 @@ function App() {
 
   return (
     <div className='App'>
-      {loading ? "LOADING..." : <Carrusel recordsData={recordData} />}
+      {loading ? (
+        "LOADING LATEST RECORDS..."
+      ) : (
+        <Carrusel recordsData={recordData} />
+      )}
     </div>
   );
 }
